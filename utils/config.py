@@ -24,8 +24,8 @@ topK = int(os.getenv("topK", "5"))
 model_api_key = os.getenv("model_api_key")
 model_base_url = os.getenv("model_base_url")
 sim_api_key = os.getenv("sim_api_key")
-SECRET_KEY = os.getenv('SECRET_KEY', 'zhipocopilot@zhipo.com')
-JWT_ALGORITHM = os.getenv('JWT_ALGORITHM', 'HS256')
+SECRET_KEY = os.getenv('SECRET_KEY', '')
+JWT_ALGORITHM = os.getenv('JWT_ALGORITHM', '')
 
 # Redis相关配置
 redis_host = os.getenv("redis_host", "127.0.0.1")
@@ -54,4 +54,5 @@ if  not model_base_url:
     model_base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 if not (sim_api_key and  model_api_key and model_base_url):
     print(f"警告：缺乏必要的参数sim_api_key：{sim_api_key}、model_api_key：{model_api_key}、model_base_url：{model_base_url}，部分功能可能不可用！")
+
     # 不直接退出，允许服务启动但部分功能不可用
